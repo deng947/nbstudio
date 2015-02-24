@@ -1,0 +1,12 @@
+mvn eclipse:eclipse
+
+
+mvn jetty:run
+
+mvn clean
+
+mvn jetty:run-war
+
+mvn war:inplace
+
+mvn appfuse:full-source

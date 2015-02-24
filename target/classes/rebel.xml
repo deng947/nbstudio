@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com/alderaan/rebel-2_0.xsd">
+
+	<classpath>
+		<dir name="E:/StudySpace/NBLast/cBNbStudio/target/classes">
+			<include name="applicationContext-dao.xml"/>
+			<include name="applicationContext-service.xml"/>
+			<include name="displaytag.properties"/>
+			<include name="displaytag_zh_CN.properties"/>
+			<include name="ehcache.xml"/>
+			<include name="hibernate.cfg.xml"/>
+			<include name="hibernate.properties"/>
+			<include name="jdbc.properties"/>
+			<include name="log4j.xml"/>
+			<include name="mail.properties"/>
+			<include name="messages.properties"/>
+			<include name="messages_zh_CN.properties"/>
+			<include name="META-INF/persistence.xml"/>
+		</dir>
+		<dir name="E:/StudySpace/NBLast/cBNbStudio/src/main/resources">
+			<include name="applicationContext-resources.xml"/>
+		</dir>
+		<dir name="E:/StudySpace/NBLast/cBNbStudio/src/main/java">
+			<include name="**/*.xml"/>
+		</dir>
+		<dir name="E:/StudySpace/NBLast/cBNbStudio/target/classes">
+		</dir>
+	</classpath>
+
+	<web>
+		<link target="/">
+			<dir name="E:/StudySpace/NBLast/cBNbStudio/src/main/webapp">
+			</dir>
+		</link>
+	</web>
+
+</application>

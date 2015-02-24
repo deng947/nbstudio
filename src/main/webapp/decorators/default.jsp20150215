@@ -1,0 +1,161 @@
+<%@ include file="/taglibs.jsp" %>
+<%@ page language="java" errorPage="/error.jsp" pageEncoding="UTF-8" contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title><decorator:title default="欢迎"/></title>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="${ctx}/images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="${ctx}/webjars/bootstrap/2.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${ctx}/webjars/bootstrap/2.2.1/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="${ctx}/styles/app.css">
+    <script type="text/javascript" src="${ctx}/webjars/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="${ctx}/webjars/bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${ctx}/scripts/app.js"></script>
+    <decorator:head/>
+    <style type="text/css">
+        .dropdown-submenu {
+            position: relative;
+        }
+        .dropdown-submenu > .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -6px;
+            margin-left: -1px;
+            -webkit-border-radius: 0 6px 6px 6px;
+            -moz-border-radius: 0 6px 6px;
+            border-radius: 0 6px 6px 6px;
+            color: #000000;
+    font-weight: bold;
+    margin-left: 0;
+    margin-right: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
+        }
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+        }
+        .dropdown-submenu > a:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+        .dropdown-submenu:hover > a:after {
+            border-left-color: #fff;
+        }
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+        .dropdown-submenu.pull-left > .dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+            
+            
+        }
+    </style>
+</head>
+<body<decorator:getProperty property="body.id" writeEntireProperty="true"/><decorator:getProperty property="body.class" writeEntireProperty="true"/>>
+<a name="top"></a>
+
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <%-- For smartphones and smaller screens --%>
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="<c:url value='/'/>">艺术工作室</a>
+                <div class="nav-collapse collapse">
+                   
+                <ul class="nav dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+               
+                <li><a href="${ctx}/customers" title="客户">客户管理</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="javascript:;">一级菜单</a>
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="javascript:;">二级菜单</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-submenu">
+                            <a href="javascript:;">二级菜单</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:;">三级菜单</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
+                	<li class="logout"><a href="${ctx}/logout">登出</a></li>
+                </security:authorize>
+            </ul>
+                   <!--<ul class="nav">
+                        <li><a href="${ctx}/" title="Home">主页</a></li>
+                        <li><a href="${ctx}/users" title="用户">用户</a></li>
+                        
+                        <li><a href="${ctx}/customers" title="客户">客户</a></li> 
+                        <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
+                            <li class="logout"><a href="${ctx}/logout">登出</a></li>
+                        </security:authorize>
+                    </ul>  -->
+                </div>
+                <script type="text/javascript">
+                    $('a[href="${pageContext.request.requestURI}"]').parent().addClass('active');
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span9">
+                <%@ include file="/messages.jsp"%>
+                <decorator:body/>
+
+                <decorator:getProperty property="page.underground"/>
+            </div>
+            <div class="span2">
+                <div id="branding">
+                    <a href="http://appfuse.org" title="AppFuse - eliminating project startup time">
+                        <img src="${ctx}/images/powered-by-appfuse.gif" width="203" height="75" alt="AppFuse"/></a>
+                </div>
+                <h3>Resources</h3>
+
+                <p>The following is a list of resources that will make <a href="http://springframework.org">Spring</a> infinitely easier to use.</p>
+
+                <ul class="glassList">
+                    <li><a href="http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/">Spring 3.2 Docs</a></li>
+                    <li><a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/">Spring 3.2 API</a></li>
+                    <li><a href="http://www.amazon.com/s/ref=nb_ss?url=search-alias%3Daps&field-keywords=spring+framework">Spring Books</a></li>
+                    <li><a href="http://forum.springframework.org/">Spring Forums</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="footer" class="footer">
+        <p align="center">
+            ©2015 All Rights Reserved. NB版权所有
+        </p>
+    </div>
+</body>
+</html>

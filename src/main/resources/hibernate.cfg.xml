@@ -1,0 +1,16 @@
+<!-- NOTE: If you're working offline, you might have to change the DOCTYPE to the following:
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">-->
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <mapping class="com.cb.model.User"/>
+        <mapping class="com.cb.model.Role"/>
+        <mapping class="com.cb.model.CustomerInformation"/> 
+        <mapping class="com.cb.model.CustomerRechargeRecord"/> 
+        <mapping class="com.cb.model.CustomerOrder"/> 
+        <mapping class="com.cb.model.CustomerOrderLine"/>       
+    </session-factory>
+</hibernate-configuration>
